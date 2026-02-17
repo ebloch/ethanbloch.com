@@ -233,7 +233,7 @@ function generatePostHTML(post) {
         </div>
         <div class="subscribe-cta">
             <p>Enjoyed this? Get new posts in your inbox.</p>
-            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+            <iframe src="https://www.ethanbloch.com/embed" width="100%" height="80" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
@@ -424,7 +424,7 @@ function generateIndexHTML(posts) {
 
         <div class="subscribe-box">
             <p>Get new posts delivered to your inbox.</p>
-            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+            <iframe src="https://www.ethanbloch.com/embed" width="100%" height="80" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </main>
 
