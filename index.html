@@ -6,25 +6,15 @@
     <meta name="description" content="Notes on money, decisions, and building a meaningful life.">
     <title>Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com">
+    <link rel="alternate" type="application/rss+xml" href="https://ethanbloch.substack.com/feed" title="Ethan Bloch">
     <style>
         :root {
-            --text: #1a1a1a;
-            --text-secondary: #666;
-            --text-muted: #999;
-            --bg: #fff;
-            --accent: #0066cc;
-            --border: #eee;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text: #e5e5e5;
-                --text-secondary: #a0a0a0;
-                --text-muted: #666;
-                --bg: #111;
-                --accent: #6db3f2;
-                --border: #333;
-            }
+            --text: #FFFEF9;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666;
+            --bg: #000;
+            --accent: #FFC857;
+            --border: #333;
         }
 
         * {
@@ -114,7 +104,7 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             white-space: nowrap;
-            min-width: 4.5rem;
+            min-width: 5.5rem;
             font-variant-numeric: tabular-nums;
         }
 
@@ -125,6 +115,15 @@
 
         .post-title:hover {
             color: var(--accent);
+        }
+
+        .loading {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .error {
+            color: #ff6b6b;
         }
 
         footer {
@@ -146,11 +145,12 @@
         .subscribe-box p {
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
         .subscribe-btn {
             display: inline-block;
-            background: var(--text);
+            background: var(--accent);
             color: var(--bg);
             padding: 0.5rem 1rem;
             border-radius: 4px;
@@ -196,43 +196,8 @@
 
     <main>
         <h2 class="section-title">Writing</h2>
-        <ul class="posts">
-            <li class="post">
-                <span class="post-date">Feb 2026</span>
-                <a href="https://www.ethanbloch.com/p/robobuffett" class="post-title">RoboBuffett</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Jan 2026</span>
-                <a href="https://www.ethanbloch.com/p/on-living-with-fewer-better-things" class="post-title">On Living With Fewer, Better Things</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Jun 2025</span>
-                <a href="https://www.ethanbloch.com/p/investors-beware-wall-street-has" class="post-title">Retail Investors, Beware: Private Equity Is Coming for You</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Jun 2025</span>
-                <a href="https://www.ethanbloch.com/p/7-things-i-learned-from-jamie-dimon" class="post-title">7 Things I Learned from Jamie Dimon</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Apr 2025</span>
-                <a href="https://www.ethanbloch.com/p/hiro" class="post-title">Hiro</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Mar 2025</span>
-                <a href="https://www.ethanbloch.com/p/how-i-manage-my-money-part-2-how-i-manage-my-investments" class="post-title">How I Manage My Investments</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Mar 2025</span>
-                <a href="https://www.ethanbloch.com/p/how-i-manage-my-money-part-1-who-am-i" class="post-title">Why I Think About Money the Way I Do</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Feb 2023</span>
-                <a href="https://www.ethanbloch.com/p/my-last-day-leading-digit" class="post-title">My Last Day Leading Digit</a>
-            </li>
-            <li class="post">
-                <span class="post-date">Dec 2014</span>
-                <a href="https://www.ethanbloch.com/p/digit" class="post-title">Digit</a>
-            </li>
+        <ul class="posts" id="posts-list">
+            <li class="loading">Loading posts...</li>
         </ul>
 
         <div class="subscribe-box">
@@ -244,5 +209,83 @@
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
+
+    <script>
+        const SUBSTACK_RSS = 'https://www.ethanbloch.com/feed';
+        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+        
+        async function fetchPosts() {
+            const postsList = document.getElementById('posts-list');
+            
+            try {
+                const response = await fetch(CORS_PROXY + encodeURIComponent(SUBSTACK_RSS));
+                if (!response.ok) throw new Error('Failed to fetch');
+                
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(xmlText, 'text/xml');
+                
+                const items = xml.querySelectorAll('item');
+                
+                if (items.length === 0) {
+                    postsList.innerHTML = '<li class="error">No posts found</li>';
+                    return;
+                }
+                
+                const postsHTML = Array.from(items).map(item => {
+                    const title = item.querySelector('title')?.textContent || 'Untitled';
+                    const link = item.querySelector('link')?.textContent || '#';
+                    const pubDate = item.querySelector('pubDate')?.textContent;
+                    
+                    let dateStr = '';
+                    if (pubDate) {
+                        const date = new Date(pubDate);
+                        dateStr = date.toLocaleDateString('en-US', { 
+                            month: 'short', 
+                            year: 'numeric' 
+                        });
+                    }
+                    
+                    return `
+                        <li class="post">
+                            <span class="post-date">${dateStr}</span>
+                            <a href="${link}" class="post-title">${title}</a>
+                        </li>
+                    `;
+                }).join('');
+                
+                postsList.innerHTML = postsHTML;
+                
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+                // Fallback to static posts if RSS fails
+                postsList.innerHTML = `
+                    <li class="post">
+                        <span class="post-date">Feb 2026</span>
+                        <a href="https://www.ethanbloch.com/p/robobuffett" class="post-title">RoboBuffett</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jan 2026</span>
+                        <a href="https://www.ethanbloch.com/p/on-living-with-fewer-better-things" class="post-title">On Living With Fewer, Better Things</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jun 2025</span>
+                        <a href="https://www.ethanbloch.com/p/7-things-i-learned-from-jamie-dimon" class="post-title">7 Things I Learned from Jamie Dimon</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Apr 2025</span>
+                        <a href="https://www.ethanbloch.com/p/hiro" class="post-title">Hiro</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Mar 2025</span>
+                        <a href="https://www.ethanbloch.com/p/how-i-manage-my-money-part-1-who-am-i" class="post-title">Why I Think About Money the Way I Do</a>
+                    </li>
+                `;
+            }
+        }
+        
+        // Fetch posts on page load
+        fetchPosts();
+    </script>
 </body>
 </html>
