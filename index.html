@@ -222,14 +222,41 @@
 
     <script>
         const SUBSTACK_RSS = 'https://www.ethanbloch.com/feed';
-        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+        const CORS_PROXIES = [
+            'https://api.allorigins.win/raw?url=',
+            'https://corsproxy.org/?'
+        ];
+        
+        async function fetchWithTimeout(url, timeout = 5000) {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                clearTimeout(id);
+                return response;
+            } catch (e) {
+                clearTimeout(id);
+                throw e;
+            }
+        }
         
         async function fetchPosts() {
             const postsList = document.getElementById('posts-list');
             
+            // Try each proxy until one works
+            let response = null;
+            for (const proxy of CORS_PROXIES) {
+                try {
+                    response = await fetchWithTimeout(proxy + encodeURIComponent(SUBSTACK_RSS), 5000);
+                    if (response.ok) break;
+                } catch (e) {
+                    console.log('Proxy failed:', proxy, e.message);
+                    continue;
+                }
+            }
+            
             try {
-                const response = await fetch(CORS_PROXY + encodeURIComponent(SUBSTACK_RSS));
-                if (!response.ok) throw new Error('Failed to fetch');
+                if (!response || !response.ok) throw new Error('All proxies failed');
                 
                 const xmlText = await response.text();
                 const parser = new DOMParser();
