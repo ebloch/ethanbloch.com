@@ -1,0 +1,201 @@
+/* ============================================
+   MINIMAL HOMEPAGE CSS FOR SUBSTACK
+   Apply in: Settings → Website → Custom CSS
+   ============================================ */
+
+/* === GENERAL CLEANUP === */
+
+/* Hide hero/cover section on homepage */
+.cover-page, 
+.hero-container,
+.publication-hero,
+.intro-popup,
+.welcome-modal {
+    display: none !important;
+}
+
+/* Clean body typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Constrain width like nat.org/steipete */
+.main-menu-content,
+.container,
+.portable-archive,
+.page {
+    max-width: 640px !important;
+    margin: 0 auto !important;
+}
+
+/* === SIMPLIFY NAVIGATION === */
+
+.main-menu {
+    border-bottom: 1px solid #eee !important;
+    background: transparent !important;
+}
+
+.topBar-pIF0J1 {
+    height: auto !important;
+    padding: 1.5rem 0 !important;
+}
+
+/* Clean title styling */
+.title-oOnUGd {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+
+/* Hide extra nav chrome */
+.section-bar,
+.overflow-list-container,
+.buttonsContainer-SJBuep .navbar-buttons > *:not(:last-child) {
+    display: none !important;
+}
+
+/* === MINIMAL POST LIST === */
+
+/* Remove post images */
+.image-tkPTAj,
+.container-XxSyR3,
+.post-preview-image,
+[class*="image-"] {
+    display: none !important;
+}
+
+/* Clean post card layout */
+.container-H2dyKk,
+[role="article"] {
+    padding: 0.75rem 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+/* Post list as simple rows */
+.container-O1YsI6 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+.container-Qnseki {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 1rem !important;
+}
+
+/* Date styling - left column */
+.date-rtYe1v,
+time {
+    font-size: 0.85rem !important;
+    color: #999 !important;
+    min-width: 5rem !important;
+    white-space: nowrap !important;
+}
+
+/* Title styling */
+[data-testid="post-preview-title"] {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #1a1a1a !important;
+    line-height: 1.4 !important;
+}
+
+[data-testid="post-preview-title"]:hover {
+    color: #0066cc !important;
+}
+
+/* Hide subtitle/description on list */
+.container-Qnseki > div > a:not([data-testid="post-preview-title"]) {
+    display: none !important;
+}
+
+/* Hide byline and meta in list */
+.meta-EgzBVA > *:not(time):not(.date-rtYe1v),
+.dividerChar-SbAJEi,
+.link-HFGLqU,
+.actions-YFg47u,
+.post-ufi {
+    display: none !important;
+}
+
+/* Hide month headers (optional - remove if you want them) */
+.monthHeader-nt8KgE {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #999 !important;
+    margin-top: 2rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+/* === HIDE EXTRA CLUTTER === */
+
+/* Hide dividers between posts */
+.divider-QOeHtM,
+.border-bottom-detail-themed-Ua9186:not(.monthHeader-nt8KgE + *) {
+    display: none !important;
+}
+
+/* Hide two-column grid - force single column */
+.two-column-list-BLHtzo {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Hide archive tabs */
+[role="tablist"],
+.segment-j4TeZ4 {
+    display: none !important;
+}
+
+/* === FOOTER CLEANUP === */
+
+.footer-wrap,
+.publication-footer {
+    display: none !important;
+}
+
+/* === DARK MODE === */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111 !important;
+        color: #e5e5e5 !important;
+    }
+    
+    [data-testid="post-preview-title"] {
+        color: #e5e5e5 !important;
+    }
+    
+    [data-testid="post-preview-title"]:hover {
+        color: #6db3f2 !important;
+    }
+    
+    .main-menu,
+    .monthHeader-nt8KgE {
+        border-color: #333 !important;
+    }
+    
+    .monthHeader-nt8KgE {
+        color: #666 !important;
+    }
+}
+
+/* === MOBILE === */
+
+@media (max-width: 480px) {
+    .container-Qnseki {
+        flex-direction: column !important;
+        gap: 0.25rem !important;
+    }
+    
+    .date-rtYe1v,
+    time {
+        min-width: auto !important;
+    }
+}
