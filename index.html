@@ -9,12 +9,23 @@
     <link rel="alternate" type="application/rss+xml" href="https://ethanbloch.substack.com/feed" title="Ethan Bloch">
     <style>
         :root {
-            --text: #FFFEF9;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666;
-            --bg: #000;
-            --accent: #FFC857;
-            --border: #333;
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg: #fff;
+            --accent: #0066cc;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #e5e5e5;
+                --text-secondary: #a0a0a0;
+                --text-muted: #666;
+                --bg: #111;
+                --accent: #6db3f2;
+                --border: #333;
+            }
         }
 
         * {
@@ -145,12 +156,11 @@
         .subscribe-box p {
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
-            color: var(--text-secondary);
         }
 
         .subscribe-btn {
             display: inline-block;
-            background: var(--accent);
+            background: var(--text);
             color: var(--bg);
             padding: 0.5rem 1rem;
             border-radius: 4px;
