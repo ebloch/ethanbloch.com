@@ -194,7 +194,7 @@
         <h1>Ethan Bloch</h1>
         <p class="tagline">Notes on money, decisions, and building a meaningful life.</p>
         <p class="bio">
-            Fintech pioneer. Built <a href="https://www.ethanbloch.com/p/digit">Digit</a> — helped millions save $9B. 
+            Fintech pioneer. Built <a href="/post.html?slug=digit">Digit</a> — helped millions save $9B. 
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
         </p>
         <div class="links">
@@ -212,7 +212,7 @@
 
         <div class="subscribe-box">
             <p>Get new posts delivered to your inbox.</p>
-            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+            <a href="https://ethanbloch.substack.com/subscribe" class="subscribe-btn">Subscribe</a>
         </div>
     </main>
 
@@ -221,7 +221,7 @@
     </footer>
 
     <script>
-        const SUBSTACK_RSS = 'https://www.ethanbloch.com/feed';
+        const SUBSTACK_RSS = 'https://ethanbloch.substack.com/feed';
         const CORS_PROXIES = [
             'https://api.allorigins.win/raw?url=',
             'https://corsproxy.org/?'
@@ -274,6 +274,11 @@
                     const link = item.querySelector('link')?.textContent || '#';
                     const pubDate = item.querySelector('pubDate')?.textContent;
                     
+                    // Extract slug from link (e.g., .../p/my-post-slug)
+                    const slugMatch = link.match(/\/p\/([^\/\?#]+)/);
+                    const slug = slugMatch ? slugMatch[1] : null;
+                    const localLink = slug ? `/post.html?slug=${slug}` : link;
+                    
                     let dateStr = '';
                     if (pubDate) {
                         const date = new Date(pubDate);
@@ -286,7 +291,7 @@
                     return `
                         <li class="post">
                             <span class="post-date">${dateStr}</span>
-                            <a href="${link}" class="post-title">${title}</a>
+                            <a href="${localLink}" class="post-title">${title}</a>
                         </li>
                     `;
                 }).join('');
@@ -299,23 +304,23 @@
                 postsList.innerHTML = `
                     <li class="post">
                         <span class="post-date">Feb 2026</span>
-                        <a href="https://www.ethanbloch.com/p/robobuffett" class="post-title">RoboBuffett</a>
+                        <a href="/post.html?slug=robobuffett" class="post-title">RoboBuffett</a>
                     </li>
                     <li class="post">
                         <span class="post-date">Jan 2026</span>
-                        <a href="https://www.ethanbloch.com/p/on-living-with-fewer-better-things" class="post-title">On Living With Fewer, Better Things</a>
+                        <a href="/post.html?slug=on-living-with-fewer-better-things" class="post-title">On Living With Fewer, Better Things</a>
                     </li>
                     <li class="post">
                         <span class="post-date">Jun 2025</span>
-                        <a href="https://www.ethanbloch.com/p/7-things-i-learned-from-jamie-dimon" class="post-title">7 Things I Learned from Jamie Dimon</a>
+                        <a href="/post.html?slug=7-things-i-learned-from-jamie-dimon" class="post-title">7 Things I Learned from Jamie Dimon</a>
                     </li>
                     <li class="post">
                         <span class="post-date">Apr 2025</span>
-                        <a href="https://www.ethanbloch.com/p/hiro" class="post-title">Hiro</a>
+                        <a href="/post.html?slug=hiro" class="post-title">Hiro</a>
                     </li>
                     <li class="post">
                         <span class="post-date">Mar 2025</span>
-                        <a href="https://www.ethanbloch.com/p/how-i-manage-my-money-part-1-who-am-i" class="post-title">Why I Think About Money the Way I Do</a>
+                        <a href="/post.html?slug=how-i-manage-my-money-part-1-who-am-i" class="post-title">Why I Think About Money the Way I Do</a>
                     </li>
                 `;
             }
