@@ -316,7 +316,7 @@ function generateIndexHTML(posts) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Notes on money, decisions, and building a meaningful life.">
+    <meta name="description" content="Notes on money, technology, and building a meaningful life.">
     <title>Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com">
     <link rel="alternate" type="application/rss+xml" href="https://www.ethanbloch.com/feed" title="Ethan Bloch">
@@ -487,7 +487,7 @@ function generateIndexHTML(posts) {
 <body>
     <header>
         <h1>Ethan Bloch</h1>
-        <p class="tagline">Notes on money, decisions, and building a meaningful life.</p>
+        <p class="tagline">Notes on money, technology, and building a meaningful life.</p>
         <p class="bio">
             Fintech pioneer. Built <a href="/posts/digit.html">Digit</a> — helped millions save $9B. 
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
