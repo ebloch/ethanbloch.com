@@ -432,6 +432,7 @@ function generateIndexHTML(posts) {
             border-radius: 6px;
             margin-top: 2rem;
             margin-bottom: 3rem;
+            text-align: center;
         }
         .subscribe-box p {
             margin-bottom: 0.75rem;
