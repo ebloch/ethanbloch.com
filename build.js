@@ -200,23 +200,44 @@ function generatePostHTML(post) {
             font-size: 0.95rem;
         }
 
-        .subscribe-btn {
-            display: inline-block;
+        .subscribe-form {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: var(--bg);
+            color: var(--text);
+            min-width: 200px;
+        }
+        .subscribe-form button {
+            padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            padding: 0.5rem 1.25rem;
+            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
         }
-        .subscribe-btn:hover {
-            opacity: 0.85;
-            text-decoration: none;
+        .subscribe-form button:hover { opacity: 0.85; }
+        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .subscribe-status {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
         }
+        .subscribe-status.success { color: #22c55e; }
+        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
+            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -233,13 +254,52 @@ function generatePostHTML(post) {
         </div>
         <div class="subscribe-cta">
             <p>Enjoyed this? Get new posts in your inbox.</p>
-            <iframe src="https://www.ethanbloch.com/embed" width="100%" height="80" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="subscribe-status"></p>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
+
+    <script>
+    async function handleSubscribe(e) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const btn = form.querySelector('button');
+        const status = form.parentElement.querySelector('.subscribe-status');
+        
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        status.textContent = '';
+        status.className = 'subscribe-status';
+        
+        try {
+            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, first_url: window.location.href })
+            });
+            if (res.ok) {
+                status.textContent = 'Thanks! Check your inbox to confirm.';
+                status.className = 'subscribe-status success';
+                form.reset();
+            } else {
+                throw new Error('Subscribe failed');
+            }
+        } catch (err) {
+            status.textContent = 'Something went wrong. Try again?';
+            status.className = 'subscribe-status error';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+    </script>
 </body>
 </html>`;
 }
@@ -378,19 +438,39 @@ function generateIndexHTML(posts) {
             font-size: 0.9rem;
         }
 
-        .subscribe-btn {
-            display: inline-block;
+        .subscribe-form {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: var(--bg);
+            color: var(--text);
+            min-width: 180px;
+        }
+        .subscribe-form button {
+            padding: 0.5rem 1rem;
             background: var(--text);
             color: var(--bg);
-            padding: 0.5rem 1rem;
+            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
         }
-        .subscribe-btn:hover {
-            opacity: 0.85;
-            text-decoration: none;
+        .subscribe-form button:hover { opacity: 0.85; }
+        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .subscribe-status {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
         }
+        .subscribe-status.success { color: #22c55e; }
+        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; }
@@ -399,6 +479,7 @@ function generateIndexHTML(posts) {
                 gap: 0.25rem;
             }
             .post-date { font-size: 0.8rem; }
+            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -424,13 +505,52 @@ function generateIndexHTML(posts) {
 
         <div class="subscribe-box">
             <p>Get new posts delivered to your inbox.</p>
-            <iframe src="https://www.ethanbloch.com/embed" width="100%" height="80" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="subscribe-status"></p>
         </div>
     </main>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
+
+    <script>
+    async function handleSubscribe(e) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const btn = form.querySelector('button');
+        const status = form.parentElement.querySelector('.subscribe-status');
+        
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        status.textContent = '';
+        status.className = 'subscribe-status';
+        
+        try {
+            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, first_url: window.location.href })
+            });
+            if (res.ok) {
+                status.textContent = 'Thanks! Check your inbox to confirm.';
+                status.className = 'subscribe-status success';
+                form.reset();
+            } else {
+                throw new Error('Subscribe failed');
+            }
+        } catch (err) {
+            status.textContent = 'Something went wrong. Try again?';
+            status.className = 'subscribe-status error';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+    </script>
 </body>
 </html>`;
 }
