@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Back in 2015 when I launched Digit, I dreamed of creating a financial AI, but the technology wasn't ready.">
+    <title>Hiro - Ethan Bloch</title>
+    <link rel="canonical" href="https://ethanbloch.com/posts/hiro">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg: #fff;
+            --accent: #0066cc;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #e5e5e5;
+                --text-secondary: #a0a0a0;
+                --text-muted: #666;
+                --bg: #111;
+                --accent: #6db3f2;
+                --border: #333;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .post-header { margin-bottom: 2.5rem; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-content h1, .post-content h2, .post-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .post-content h1 { font-size: 1.5rem; }
+        .post-content h2 { font-size: 1.3rem; }
+        .post-content h3 { font-size: 1.1rem; }
+
+        .post-content p { margin-bottom: 1.25rem; }
+
+        .post-content ul, .post-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.25rem;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .post-content .captioned-image-container,
+        .post-content figure { margin: 1.5rem 0; }
+
+        .post-content figcaption,
+        .post-content .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .post-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .post-content .subscription-widget-wrap-editor,
+        .post-content .subscribe-widget,
+        .post-content .pencraft,
+        .post-content .image-link-expand { display: none !important; }
+
+        .post-content iframe {
+            max-width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .subscribe-cta {
+            background: var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .subscribe-cta p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .subscribe-btn:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 2rem 1rem; font-size: 17px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to home</a>
+    
+    <article>
+        <header class="post-header">
+            <h1>Hiro</h1>
+            <p class="post-meta">April 8, 2025</p>
+        </header>
+        <div class="post-content">
+            <div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!Wvim!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!Wvim!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 424w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 848w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 1272w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!Wvim!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png" width="1456" height="764" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/ab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:764,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:106958,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://www.ethanbloch.com/i/184160491?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!Wvim!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 424w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 848w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 1272w, https://substackcdn.com/image/fetch/$s_!Wvim!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab193ca1-8e38-4040-bfc5-956ff3826c53_2400x1260.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container restack-image"><svg role="img" style="height:20px;width:20px" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><g><title></title><path d="M2.53001 7.81595C3.49179 4.73911 6.43281 2.5 9.91173 2.5C13.1684 2.5 15.9537 4.46214 17.0852 7.23684L17.6179 8.67647M17.6179 8.67647L18.5002 4.26471M17.6179 8.67647L13.6473 6.91176M17.4995 12.1841C16.5378 15.2609 13.5967 17.5 10.1178 17.5C6.86118 17.5 4.07589 15.5379 2.94432 12.7632L2.41165 11.3235M2.41165 11.3235L1.5293 15.7353M2.41165 11.3235L6.38224 13.0882"></path></g></svg></button><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container view-image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2 lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg></button></div></div></div></a></figure></div><p>Back in 2015 when I launched Digit, I dreamed of creating a financial AI, but the technology wasn't ready. Digit helped millions of people save billions of dollars but it never became a financial AI. It turns out the dream never died &#8212; it just had to wait.<br><br>After leaving Digit in 2023, I had no plans to start another company. I needed to recharge.<br><br>However one of my partners from Digit, <strong><a href="https://www.linkedin.com/in/radoshi/">Rushabh Doshi</a></strong>, immediately went off exploring and building with LLMs; ChatGPT had just launched a few months prior.<br><br>In early 2024, Rushabh showed me what he had been building and learning. I was shook. The universe was calling. We had to go see if the dream of a financial AI was now possible.<br><br>After 12 months of exploring the frontier of LLMs + financial data we believe it is.<br><br>We have entered the era of personal financial intelligence.<br><br>The computer started as a tool you used at work, until Apple made it personal; "a computer in every home." The CFO started as a job at work, and Hiro is making it personal; a CFO in every pocket.<br><br>What does this mean? It means no more app-hopping between Google searches, spreadsheets, budgeting tools, banking apps and investment accounts. It means having a super sharp financial partner that knows your situation deeply and can actually help you make better decisions. It means the end of financial advice that sounds smart but isn't personalized to your reality.</p><p><br>We've been testing with friends and family for the past 6 months. Starting today, we're rolling out a larger private beta.<br><br>If you want to experience the future of finance, sign up for beta access: https://HiroFinance.com</p>
+        </div>
+        <div class="subscribe-cta">
+            <p>Enjoyed this? Get new posts in your inbox.</p>
+            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 Ethan Bloch</p>
+    </footer>
+</body>
+</html>

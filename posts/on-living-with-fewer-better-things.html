@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why good design disappears&#8212;and why that matters">
+    <title>On Living With Fewer, Better Things - Ethan Bloch</title>
+    <link rel="canonical" href="https://ethanbloch.com/posts/on-living-with-fewer-better-things">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg: #fff;
+            --accent: #0066cc;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #e5e5e5;
+                --text-secondary: #a0a0a0;
+                --text-muted: #666;
+                --bg: #111;
+                --accent: #6db3f2;
+                --border: #333;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .post-header { margin-bottom: 2.5rem; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-content h1, .post-content h2, .post-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .post-content h1 { font-size: 1.5rem; }
+        .post-content h2 { font-size: 1.3rem; }
+        .post-content h3 { font-size: 1.1rem; }
+
+        .post-content p { margin-bottom: 1.25rem; }
+
+        .post-content ul, .post-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.25rem;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .post-content .captioned-image-container,
+        .post-content figure { margin: 1.5rem 0; }
+
+        .post-content figcaption,
+        .post-content .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .post-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .post-content .subscription-widget-wrap-editor,
+        .post-content .subscribe-widget,
+        .post-content .pencraft,
+        .post-content .image-link-expand { display: none !important; }
+
+        .post-content iframe {
+            max-width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .subscribe-cta {
+            background: var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .subscribe-cta p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .subscribe-btn:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 2rem 1rem; font-size: 17px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to home</a>
+    
+    <article>
+        <header class="post-header">
+            <h1>On Living With Fewer, Better Things</h1>
+            <p class="post-meta">January 10, 2026</p>
+        </header>
+        <div class="post-content">
+            <div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!gRvG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!gRvG!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 424w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 848w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 1272w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!gRvG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png" width="1280" height="640" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:640,&quot;width&quot;:1280,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:143296,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://www.ethanbloch.com/i/184158139?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!gRvG!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 424w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 848w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 1272w, https://substackcdn.com/image/fetch/$s_!gRvG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f41d5b3-70dc-413f-8321-508e4d94d7a4_1280x640.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container restack-image"><svg role="img" style="height:20px;width:20px" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><g><title></title><path d="M2.53001 7.81595C3.49179 4.73911 6.43281 2.5 9.91173 2.5C13.1684 2.5 15.9537 4.46214 17.0852 7.23684L17.6179 8.67647M17.6179 8.67647L18.5002 4.26471M17.6179 8.67647L13.6473 6.91176M17.4995 12.1841C16.5378 15.2609 13.5967 17.5 10.1178 17.5C6.86118 17.5 4.07589 15.5379 2.94432 12.7632L2.41165 11.3235M2.41165 11.3235L1.5293 15.7353M2.41165 11.3235L6.38224 13.0882"></path></g></svg></button><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container view-image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2 lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg></button></div></div></div></a></figure></div><p>As I&#8217;ve gotten older, I&#8217;ve become far more discerning about what I allow into my environment&#8212;and why it&#8217;s there at all. Products, at least the ones we live with every day, should do two things well: work beautifully and quietly inspire. Anything less becomes noise.</p><p>I try to be deliberate. Every object earns its place. That mindset owes a great deal to the thinking of Naoto Fukasawa and Jasper Morrison, and their idea of <em><a href="https://www.lars-mueller-publishers.com/super-normal">Super Normal</a></em>. The premise is deceptively simple: when a product reaches its most resolved state of function and design, it stops asking for attention. It disappears. You don&#8217;t think about it because there&#8217;s nothing to think about. It just works.</p><p>There&#8217;s something almost radical about that today. We live in a culture that rewards novelty, visual loudness, and constant upgrading. Products are designed to announce themselves&#8212;to signal taste, status, or cleverness. But the best ones don&#8217;t perform. They recede. They become part of the fabric of daily life.</p><p>A recent issue of <em>The Modernist</em> described these objects with a different word: <em><a href="https://the-modernist.org/products/the-modernist-magazine-issue-55-ordinary">ordinary</a></em>. Not ordinary as in careless or generic, but ordinary in the deepest sense&#8212;objects so well considered that they feel inevitable. As if they could not be otherwise.</p><p>It has never been easier to buy things. One click, same-day delivery, infinite choice. And just as easily, we crowd our spaces with more and more objects, each one demanding a bit of our attention, maintenance, or decision-making energy. The accumulation is subtle, but the weight is real.</p><p>Being selective takes effort. Living with less takes intention. But I&#8217;ve found that insisting each object be quietly inspirational&#8212;even the simplest ones&#8212;changes how a space feels, and how I feel within it. The goal isn&#8217;t minimalism. </p><p>It&#8217;s presence.</p>
+        </div>
+        <div class="subscribe-cta">
+            <p>Enjoyed this? Get new posts in your inbox.</p>
+            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 Ethan Bloch</p>
+    </footer>
+</body>
+</html>

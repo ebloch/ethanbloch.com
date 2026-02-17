@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We couldn't believe a simple Bitcoin SMS price alert, with no bullshit, no ads, no pay gates, didn't already exist.">
+    <title>1st digit Hackathon - Ethan Bloch</title>
+    <link rel="canonical" href="https://ethanbloch.com/posts/1st-digit-hackathon">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg: #fff;
+            --accent: #0066cc;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #e5e5e5;
+                --text-secondary: #a0a0a0;
+                --text-muted: #666;
+                --bg: #111;
+                --accent: #6db3f2;
+                --border: #333;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .post-header { margin-bottom: 2.5rem; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .post-content h1, .post-content h2, .post-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .post-content h1 { font-size: 1.5rem; }
+        .post-content h2 { font-size: 1.3rem; }
+        .post-content h3 { font-size: 1.1rem; }
+
+        .post-content p { margin-bottom: 1.25rem; }
+
+        .post-content ul, .post-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.25rem;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .post-content .captioned-image-container,
+        .post-content figure { margin: 1.5rem 0; }
+
+        .post-content figcaption,
+        .post-content .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .post-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .post-content .subscription-widget-wrap-editor,
+        .post-content .subscribe-widget,
+        .post-content .pencraft,
+        .post-content .image-link-expand { display: none !important; }
+
+        .post-content iframe {
+            max-width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .subscribe-cta {
+            background: var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .subscribe-cta p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .subscribe-btn:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 2rem 1rem; font-size: 17px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to home</a>
+    
+    <article>
+        <header class="post-header">
+            <h1>1st digit Hackathon</h1>
+            <p class="post-meta">November 25, 2013</p>
+        </header>
+        <div class="post-content">
+            <a class="image-link image2" target="_blank" href="https://substackcdn.com/image/fetch/$s_!y9Xd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!y9Xd!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 424w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 848w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!y9Xd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:null,&quot;width&quot;:null,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;1st digit Hackathon&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="1st digit Hackathon" title="1st digit Hackathon" srcset="https://substackcdn.com/image/fetch/$s_!y9Xd!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 424w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 848w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!y9Xd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11e824a3-aca6-4845-8dd6-3ae4e4181998_500x451.jpeg 1456w" sizes="100vw" fetchpriority="high"></picture><div></div></div></a><p>We couldn't believe a simple <a href="https://t.umblr.com/redirect?z=http%3A%2F%2Fdigit.co%2Fbitcoin-sms-alert&amp;t=ODIwNDhiOTc0MTBhNWJhMDEwOTBlYzJiYzUwMzkzODZkZjIyZjE4NywzODY2OTI3YzZkZDkzZmUyZTFiYmJmMTVmODk4YmVkYWM5ODI1OGNi&amp;ts=1730178092&amp;ref=ethan-bloch.ghost.io">Bitcoin SMS price alert</a>, with no bullshit, no ads, no pay gates, didn't already exist. So we spent a day building it. I hope you enjoy it!</p><p>Please let us know if you encounter any issues or have any feedback.</p>
+        </div>
+        <div class="subscribe-cta">
+            <p>Enjoyed this? Get new posts in your inbox.</p>
+            <a href="https://www.ethanbloch.com/subscribe" class="subscribe-btn">Subscribe</a>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 Ethan Bloch</p>
+    </footer>
+</body>
+</html>

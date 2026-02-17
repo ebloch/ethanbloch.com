@@ -6,7 +6,7 @@
     <meta name="description" content="Notes on money, decisions, and building a meaningful life.">
     <title>Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com">
-    <link rel="alternate" type="application/rss+xml" href="https://ethanbloch.substack.com/feed" title="Ethan Bloch">
+    <link rel="alternate" type="application/rss+xml" href="https://www.ethanbloch.com/feed" title="Ethan Bloch">
     <style>
         :root {
             --text: #1a1a1a;
@@ -28,11 +28,7 @@
             }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -45,18 +41,10 @@
             padding: 4rem 1.5rem;
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            margin-bottom: 3rem;
-        }
+        header { margin-bottom: 3rem; }
 
         h1 {
             font-size: 1.5rem;
@@ -80,14 +68,8 @@
             gap: 1.25rem;
             font-size: 0.9rem;
         }
-
-        .links a {
-            color: var(--text-muted);
-        }
-
-        .links a:hover {
-            color: var(--accent);
-        }
+        .links a { color: var(--text-muted); }
+        .links a:hover { color: var(--accent); }
 
         .section-title {
             font-size: 0.75rem;
@@ -100,9 +82,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .posts {
-            list-style: none;
-        }
+        .posts { list-style: none; }
 
         .post {
             margin-bottom: 1.25rem;
@@ -123,19 +103,7 @@
             color: var(--text);
             font-weight: 500;
         }
-
-        .post-title:hover {
-            color: var(--accent);
-        }
-
-        .loading {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .error {
-            color: #ff6b6b;
-        }
+        .post-title:hover { color: var(--accent); }
 
         footer {
             margin-top: 4rem;
@@ -152,7 +120,6 @@
             margin-top: 2rem;
             margin-bottom: 3rem;
         }
-
         .subscribe-box p {
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
@@ -167,25 +134,18 @@
             font-size: 0.9rem;
             font-weight: 500;
         }
-
         .subscribe-btn:hover {
             opacity: 0.85;
             text-decoration: none;
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 2rem 1rem;
-            }
-
+            body { padding: 2rem 1rem; }
             .post {
                 flex-direction: column;
                 gap: 0.25rem;
             }
-
-            .post-date {
-                font-size: 0.8rem;
-            }
+            .post-date { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -194,7 +154,7 @@
         <h1>Ethan Bloch</h1>
         <p class="tagline">Notes on money, decisions, and building a meaningful life.</p>
         <p class="bio">
-            Fintech pioneer. Built <a href="/post.html?slug=digit">Digit</a> — helped millions save $9B. 
+            Fintech pioneer. Built <a href="/posts/digit.html">Digit</a> — helped millions save $9B. 
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
         </p>
         <div class="links">
@@ -206,8 +166,83 @@
 
     <main>
         <h2 class="section-title">Writing</h2>
-        <ul class="posts" id="posts-list">
-            <li class="loading">Loading posts...</li>
+        <ul class="posts">
+                    <li class="post">
+                        <span class="post-date">Feb 2026</span>
+                        <a href="/posts/robobuffett.html" class="post-title">RoboBuffett</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jan 2026</span>
+                        <a href="/posts/on-living-with-fewer-better-things.html" class="post-title">On Living With Fewer, Better Things</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jun 2025</span>
+                        <a href="/posts/investors-beware-wall-street-has.html" class="post-title">Retail Investors, Beware: Private Equity Is Coming for You</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jun 2025</span>
+                        <a href="/posts/7-things-i-learned-from-jamie-dimon.html" class="post-title">7 Things I Learned from Jamie Dimon</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Apr 2025</span>
+                        <a href="/posts/hiro.html" class="post-title">Hiro</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Mar 2025</span>
+                        <a href="/posts/how-i-manage-my-money-part-2-how-i-manage-my-investments.html" class="post-title">How I Manage My Investments</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Mar 2025</span>
+                        <a href="/posts/how-i-manage-my-money-part-1-who-am-i.html" class="post-title">Why I Think About Money the Way I Do</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Feb 2023</span>
+                        <a href="/posts/my-last-day-leading-digit.html" class="post-title">My Last Day Leading Digit</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Dec 2014</span>
+                        <a href="/posts/digit.html" class="post-title">Digit</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">May 2014</span>
+                        <a href="/posts/homosapiens.html" class="post-title">Homosapiens</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">May 2014</span>
+                        <a href="/posts/creation.html" class="post-title">Creation</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">May 2014</span>
+                        <a href="/posts/beliefs.html" class="post-title">Beliefs</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">May 2014</span>
+                        <a href="/posts/one-of-the-many-benefits-to-reading.html" class="post-title">One of the many benefits to reading</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Nov 2013</span>
+                        <a href="/posts/1st-digit-hackathon.html" class="post-title">1st digit Hackathon</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Feb 2013</span>
+                        <a href="/posts/the-dark-side-of-creating.html" class="post-title">The dark side of creating</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Jan 2013</span>
+                        <a href="/posts/vanity-is-definitely-my-favorite-sin.html" class="post-title">Vanity is definitely my favorite sin</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Dec 2012</span>
+                        <a href="/posts/learning-to-breath.html" class="post-title">Learning to breath</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Dec 2012</span>
+                        <a href="/posts/hard-conversations.html" class="post-title">Hard conversations</a>
+                    </li>
+                    <li class="post">
+                        <span class="post-date">Dec 2012</span>
+                        <a href="/posts/shaping-life.html" class="post-title">Shaping life</a>
+                    </li>
         </ul>
 
         <div class="subscribe-box">
@@ -219,115 +254,5 @@
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-        const SUBSTACK_RSS = 'https://www.ethanbloch.com/feed';
-        const CORS_PROXIES = [
-            'https://api.allorigins.win/raw?url=',
-            'https://corsproxy.org/?'
-        ];
-        
-        async function fetchWithTimeout(url, timeout = 5000) {
-            const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), timeout);
-            try {
-                const response = await fetch(url, { signal: controller.signal });
-                clearTimeout(id);
-                return response;
-            } catch (e) {
-                clearTimeout(id);
-                throw e;
-            }
-        }
-        
-        async function fetchPosts() {
-            const postsList = document.getElementById('posts-list');
-            
-            // Try each proxy until one works
-            let response = null;
-            for (const proxy of CORS_PROXIES) {
-                try {
-                    response = await fetchWithTimeout(proxy + encodeURIComponent(SUBSTACK_RSS), 5000);
-                    if (response.ok) break;
-                } catch (e) {
-                    console.log('Proxy failed:', proxy, e.message);
-                    continue;
-                }
-            }
-            
-            try {
-                if (!response || !response.ok) throw new Error('All proxies failed');
-                
-                const xmlText = await response.text();
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'text/xml');
-                
-                const items = xml.querySelectorAll('item');
-                
-                if (items.length === 0) {
-                    postsList.innerHTML = '<li class="error">No posts found</li>';
-                    return;
-                }
-                
-                const postsHTML = Array.from(items).map(item => {
-                    const title = item.querySelector('title')?.textContent || 'Untitled';
-                    const link = item.querySelector('link')?.textContent || '#';
-                    const pubDate = item.querySelector('pubDate')?.textContent;
-                    
-                    // Extract slug from link (e.g., .../p/my-post-slug)
-                    const slugMatch = link.match(/\/p\/([^\/\?#]+)/);
-                    const slug = slugMatch ? slugMatch[1] : null;
-                    const localLink = slug ? `/post.html?slug=${slug}` : link;
-                    
-                    let dateStr = '';
-                    if (pubDate) {
-                        const date = new Date(pubDate);
-                        dateStr = date.toLocaleDateString('en-US', { 
-                            month: 'short', 
-                            year: 'numeric' 
-                        });
-                    }
-                    
-                    return `
-                        <li class="post">
-                            <span class="post-date">${dateStr}</span>
-                            <a href="${localLink}" class="post-title">${title}</a>
-                        </li>
-                    `;
-                }).join('');
-                
-                postsList.innerHTML = postsHTML;
-                
-            } catch (error) {
-                console.error('Error fetching posts:', error);
-                // Fallback to static posts if RSS fails
-                postsList.innerHTML = `
-                    <li class="post">
-                        <span class="post-date">Feb 2026</span>
-                        <a href="/post.html?slug=robobuffett" class="post-title">RoboBuffett</a>
-                    </li>
-                    <li class="post">
-                        <span class="post-date">Jan 2026</span>
-                        <a href="/post.html?slug=on-living-with-fewer-better-things" class="post-title">On Living With Fewer, Better Things</a>
-                    </li>
-                    <li class="post">
-                        <span class="post-date">Jun 2025</span>
-                        <a href="/post.html?slug=7-things-i-learned-from-jamie-dimon" class="post-title">7 Things I Learned from Jamie Dimon</a>
-                    </li>
-                    <li class="post">
-                        <span class="post-date">Apr 2025</span>
-                        <a href="/post.html?slug=hiro" class="post-title">Hiro</a>
-                    </li>
-                    <li class="post">
-                        <span class="post-date">Mar 2025</span>
-                        <a href="/post.html?slug=how-i-manage-my-money-part-1-who-am-i" class="post-title">Why I Think About Money the Way I Do</a>
-                    </li>
-                `;
-            }
-        }
-        
-        // Fetch posts on page load
-        fetchPosts();
-    </script>
 </body>
 </html>
