@@ -60,6 +60,25 @@ function generatePostHTML(post) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${post.description.replace(/"/g, '&quot;').replace(/<[^>]*>/g, '').slice(0, 160)}">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="${post.title}">
+    <meta property="og:description" content="${post.description.replace(/"/g, '&quot;').replace(/<[^>]*>/g, '').slice(0, 160)}">
+    <meta property="og:url" content="https://ethanbloch.com/posts/${post.slug}">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="${new Date(post.pubDate).toISOString()}">
+    <meta property="article:author" content="Ethan Bloch">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="${post.title}">
+    <meta name="twitter:description" content="${post.description.replace(/"/g, '&quot;').replace(/<[^>]*>/g, '').slice(0, 160)}">
+
     <title>${post.title} - Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com/posts/${post.slug}">
     <style>
@@ -317,6 +336,23 @@ function generateIndexHTML(posts) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Notes on money, technology, and building a meaningful life.">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="Ethan Bloch">
+    <meta property="og:description" content="Notes on money, technology, and building a meaningful life.">
+    <meta property="og:url" content="https://ethanbloch.com">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="Ethan Bloch">
+    <meta name="twitter:description" content="Notes on money, technology, and building a meaningful life.">
+
     <title>Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com">
     <link rel="alternate" type="application/rss+xml" href="https://www.ethanbloch.com/feed" title="Ethan Bloch">
