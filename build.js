@@ -493,7 +493,7 @@ function generateIndexHTML(posts) {
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
         </p>
         <div class="links">
-            <a href="https://twitter.com/ethanbloch">Twitter</a>
+            <a href="https://twitter.com/ethanbloch">X</a>
             <a href="https://linkedin.com/in/ethanbloch">LinkedIn</a>
             <a href="https://hirofinance.com">Hiro</a>
         </div>
