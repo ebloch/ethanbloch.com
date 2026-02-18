@@ -272,53 +272,13 @@ function generatePostHTML(post) {
             ${post.content}
         </div>
         <div class="subscribe-cta">
-            <p>Enjoyed this? Get new posts in your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://ethanbloch.substack.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>`;
 }
@@ -542,53 +502,13 @@ function generateIndexHTML(posts) {
         </ul>
 
         <div class="subscribe-box">
-            <p>Get new posts delivered to your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </main>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://ethanbloch.substack.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>`;
 }
