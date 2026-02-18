@@ -7,7 +7,11 @@ const RSS_URL = 'https://ethanbloch.substack.com/feed';
 const POSTS_DIR = './posts';
 
 async function fetchRSS() {
-  const response = await fetch(RSS_URL);
+  const response = await fetch(RSS_URL, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; EthanBlochSiteBuilder/1.0)'
+    }
+  });
   if (!response.ok) throw new Error(`Failed to fetch RSS: ${response.status}`);
   return response.text();
 }
