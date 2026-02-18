@@ -312,7 +312,7 @@
         status.className = 'subscribe-status';
         
         try {
-            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
+            const res = await fetch('https://ethanbloch.substack.com/api/v1/free', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, first_url: window.location.href })
