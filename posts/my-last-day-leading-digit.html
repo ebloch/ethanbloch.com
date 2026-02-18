@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="After 10 deeply fulfilling years, today is my last day leading @hellodigit. There are too many people to thank, please know I appreciate every single one of you">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="My Last Day Leading Digit">
+    <meta property="og:description" content="After 10 deeply fulfilling years, today is my last day leading @hellodigit. There are too many people to thank, please know I appreciate every single one of you">
+    <meta property="og:url" content="https://ethanbloch.com/posts/my-last-day-leading-digit">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2023-02-03T00:00:00.000Z">
+    <meta property="article:author" content="Ethan Bloch">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="My Last Day Leading Digit">
+    <meta name="twitter:description" content="After 10 deeply fulfilling years, today is my last day leading @hellodigit. There are too many people to thank, please know I appreciate every single one of you">
+
     <title>My Last Day Leading Digit - Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com/posts/my-last-day-leading-digit">
     <style>
@@ -191,58 +210,18 @@
     <article>
         <header class="post-header">
             <h1>My Last Day Leading Digit</h1>
-            <p class="post-meta">February 3, 2023</p>
+            <p class="post-meta">February 2, 2023</p>
         </header>
         <div class="post-content">
             <div class="captioned-image-container"><figure><blockquote><p>After 10 deeply fulfilling years, today is my last day leading <a href="https://twitter.com/hellodigit?ref_src=twsrc%5Etfw&amp;ref=ethan-bloch.ghost.io">@hellodigit</a>. There are too many people to thank, please know I appreciate every single one of you for being on this journey with me and for all you have done to get us here. And now for a brief history of Digit. 1/44</p><p>&#8212; Ethan Bloch (@ebloch) <a href="https://twitter.com/ebloch/status/1621584720650989568?ref_src=twsrc%5Etfw&amp;ref=ethan-bloch.ghost.io">February 3, 2023</a></p></blockquote></figure></div><p>Building Digit has been the greatest joy and achievement of my professional life. I still can&#8217;t fully believe the journey I have been on these last <a href="https://ethan-bloch.ghost.io/post/105357451689/digit">10 years</a>. What started as a dream, a few lines of code, and a belief I could change the 4 trillion-dollar financial services industry, has led to helping millions of Americans save over 8 billion dollars.</p><p>In addition to what we have done for members, we also created a work environment that many have called the best place they have ever worked, that has enabled many of us, myself included, to actually do the best work of their lives. All while building a profitable business and over <a href="https://www.bloomberg.com/news/articles/2021-11-16/fintech-lender-oportun-to-acquire-online-banking-platform-digit?embedded-checkout=true&amp;ref=ethan-bloch.ghost.io">$200M in enterprise value</a>.</p><p>I sit here listening to some of the music I listened to so many years ago while building Digit, with tears in my eyes, touched by all we have done and accomplished and incredibly grateful to have had these moments in this universe to create this product, this business, this experience for everyone we&#8217;ve touched these last 10 years.</p><p>As hard as this decision has been for me, I know now is the right time for me to hand over the reins to the next generation of leaders. And I am excited for the next generation of leaders to carry the Digit + Oportun mission far into the future.</p><p>There are too many people to thank for making Digit possible. Please know I am appreciative of every single one of you for being on this journey with me and for all you have done to get us here.</p><p>As for what's next for me. For now, more time with the family. Reading, thinking, writing, geeking out and reconnecting with friends &#128591;</p><p><strong>Notes</strong></p><p>Throwback to when I announced Digit: <a href="https://ethan-bloch.ghost.io/post/105357451689/digit">https://ethanbloch.com/post/105357451689/digit</a></p>
         </div>
         <div class="subscribe-cta">
-            <p>Enjoyed this? Get new posts in your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>

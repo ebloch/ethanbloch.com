@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The things that carry your attention have an astronomical impact on your life.">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="Shaping life">
+    <meta property="og:description" content="The things that carry your attention have an astronomical impact on your life.">
+    <meta property="og:url" content="https://ethanbloch.com/posts/shaping-life">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2012-12-06T16:05:00.000Z">
+    <meta property="article:author" content="Ethan Bloch">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="Shaping life">
+    <meta name="twitter:description" content="The things that carry your attention have an astronomical impact on your life.">
+
     <title>Shaping life - Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com/posts/shaping-life">
     <style>
@@ -197,52 +216,12 @@
             <p>The things that carry your attention have an astronomical impact on your life.</p><p>The books and articles you read. Movies and shows you watch. Music you listen. People you spend time with. Places you visit, travel and shop. The thoughts you spend your time thinking.</p><p>Choose them wisely.</p><p>You sculpt yourself every day.</p><p>Garbage in, garbage out.</p>
         </div>
         <div class="subscribe-cta">
-            <p>Enjoyed this? Get new posts in your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>

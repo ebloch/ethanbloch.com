@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hard conversations are the stuff that growth is made of.">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="Hard conversations">
+    <meta property="og:description" content="Hard conversations are the stuff that growth is made of.">
+    <meta property="og:url" content="https://ethanbloch.com/posts/hard-conversations">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2012-12-17T00:00:00.000Z">
+    <meta property="article:author" content="Ethan Bloch">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="Hard conversations">
+    <meta name="twitter:description" content="Hard conversations are the stuff that growth is made of.">
+
     <title>Hard conversations - Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com/posts/hard-conversations">
     <style>
@@ -191,58 +210,18 @@
     <article>
         <header class="post-header">
             <h1>Hard conversations</h1>
-            <p class="post-meta">December 17, 2012</p>
+            <p class="post-meta">December 16, 2012</p>
         </header>
         <div class="post-content">
             <p>Hard conversations are the stuff that growth is made of. Ignore them at your peril.</p><p>Whether with your spouse, partner, co-founder, team member, family member, friend or employee. It is through hard conversations that you enable one another to grow.</p><p>What exactly are hard conversations made of? Typically how something made you feel or something you've observed about someone (something). In short, they are about a truth. And usually the truth hurts. Yet sharing and discussing truth is liberating. So you need to make sure you don't enslave it.&nbsp;</p><p>Don't short change the people in your life because you are scared of these hard conversations. Don't give yourself an out. Through the pain that is having conversations a magic is unearthed.</p><p>Think of it as a tilling of the relationship soil that allows new crops to grow.</p><p>I've come to discover that one of the most satisfying feelings for me in life is the feeling I get towards the end of one of these conversations. And I encourage you to chase this high.</p><p>I'm not world class at having hard conversations yet. But it's something I'm committed to and work on every day.</p><p>Hard conversations are called hard conversations for a reason they're freaking hard. But I promise you this: hard conversations will lead to stronger and healthier relationships. Who doesn't want that?</p><p>What conversations have you been avoiding?</p><p><strong>Notes</strong></p><p>I can't write this without thanking Dana and Bryan for helping me have more hard conversations.</p>
         </div>
         <div class="subscribe-cta">
-            <p>Enjoyed this? Get new posts in your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>

@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="It's become standard operating procedure of the 21st century.">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="Vanity is definitely my favorite sin">
+    <meta property="og:description" content="It's become standard operating procedure of the 21st century.">
+    <meta property="og:url" content="https://ethanbloch.com/posts/vanity-is-definitely-my-favorite-sin">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2013-01-09T00:00:00.000Z">
+    <meta property="article:author" content="Ethan Bloch">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="Vanity is definitely my favorite sin">
+    <meta name="twitter:description" content="It's become standard operating procedure of the 21st century.">
+
     <title>Vanity is definitely my favorite sin - Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com/posts/vanity-is-definitely-my-favorite-sin">
     <style>
@@ -191,58 +210,18 @@
     <article>
         <header class="post-header">
             <h1>Vanity is definitely my favorite sin</h1>
-            <p class="post-meta">January 9, 2013</p>
+            <p class="post-meta">January 8, 2013</p>
         </header>
         <div class="post-content">
             <p>It's become standard operating procedure of the 21st century.</p><p>It surrounds us and constantly asks us to take part in it's joyful pursuit. Every time you get a like on that status message or photo the vanity loop is reinforced.</p><p>We've scaled the shit out of participation in other peoples and creation of our own vanity.</p><p>Just because it's happening doesn't mean it's ok. Just because we've built systems that enable it to happen so effortlessly doesn't mean it should occupy so many social updates.</p><p>We live in a world where our ability to show other people how great of a time we are having is easier than actually having a great time.&nbsp;</p><p>Why does it matter that so many people know you are having this experience right now?&nbsp;</p><p>Just because your 700 friends and 200 followers didn't see it doesn't mean it didn't happen.</p><p>Your experiences don't exist to help others know how to treat you. Your experiences exist so you can figure out who you are and how you want other people to treat you.</p><p>By sharing your moment with others who are not present you're diluting your moment and robbing yourself of it's full experience.</p><p>I write this as someone who constantly struggles with the desire to share my experience with other people. I now consciously check-in and ask myself 'Why?' in order to make sure there's a reason greater than vanity.</p><p>Live for the moment not for the moment other people think you're having. You'll never get it back.</p>
         </div>
         <div class="subscribe-cta">
-            <p>Enjoyed this? Get new posts in your inbox.</p>
-            <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-                <input type="email" name="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p class="subscribe-status"></p>
+            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
         </div>
     </article>
 
     <footer>
         <p>© 2026 Ethan Bloch</p>
     </footer>
-
-    <script>
-    async function handleSubscribe(e) {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const btn = form.querySelector('button');
-        const status = form.parentElement.querySelector('.subscribe-status');
-        
-        btn.disabled = true;
-        btn.textContent = 'Subscribing...';
-        status.textContent = '';
-        status.className = 'subscribe-status';
-        
-        try {
-            const res = await fetch('https://www.ethanbloch.com/api/v1/free', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, first_url: window.location.href })
-            });
-            if (res.ok) {
-                status.textContent = 'Thanks! Check your inbox to confirm.';
-                status.className = 'subscribe-status success';
-                form.reset();
-            } else {
-                throw new Error('Subscribe failed');
-            }
-        } catch (err) {
-            status.textContent = 'Something went wrong. Try again?';
-            status.className = 'subscribe-status error';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    }
-    </script>
 </body>
 </html>

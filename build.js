@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const RSS_URL = 'https://www.ethanbloch.com/feed';
+const RSS_URL = 'https://ethanbloch.substack.com/feed';
 const POSTS_DIR = './posts';
 
 async function fetchRSS() {
