@@ -531,6 +531,7 @@ function generateIndexHTML(posts) {
         <div class="links">
             <a href="https://twitter.com/ethanbloch">X</a>
             <a href="https://linkedin.com/in/ethanbloch">LinkedIn</a>
+            <a href="https://github.com/ebloch">GitHub</a>
             <a href="https://hirofinance.com">Hiro</a>
         </div>
     </header>
