@@ -202,11 +202,11 @@ function generatePostHTML(post) {
             max-width: 100%;
             height: auto;
             border-radius: 4px;
-            margin: 1.5rem 0;
+            margin: 0.5rem 0 1.5rem 0;
         }
 
         .post-content .captioned-image-container,
-        .post-content figure { margin: 1.5rem 0; }
+        .post-content figure { margin: 0.5rem 0 1.5rem 0; }
 
         .post-content figcaption,
         .post-content .image-caption {
