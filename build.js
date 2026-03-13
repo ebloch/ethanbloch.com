@@ -178,8 +178,8 @@ function generatePostHTML(post) {
             padding: 1rem 1.25rem;
             margin: 1.5rem 0;
             overflow-x: auto;
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .post-content pre code {
@@ -195,7 +195,7 @@ function generatePostHTML(post) {
             padding: 0.15rem 0.4rem;
             border-radius: 4px;
             font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
-            font-size: 0.85em;
+            font-size: 0.95em;
         }
 
         .post-content img {
