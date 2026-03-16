@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Archive of Pulse — Ethan's daily briefing.">
+    <meta name="author" content="Ethan Bloch">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ethan Bloch">
+    <meta property="og:title" content="Pulse — Archive">
+    <meta property="og:description" content="Archive of Ethan's daily briefing.">
+    <meta property="og:url" content="https://ethanbloch.com/pulse/archive.html">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ethanbloch">
+    <meta name="twitter:title" content="Pulse — Archive">
+
+    <title>Archive — Pulse</title>
+    <link rel="canonical" href="https://ethanbloch.com/pulse/archive.html">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --bg: #fff;
+            --accent: #0066cc;
+            --border: #eee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #e5e5e5;
+                --text-secondary: #a0a0a0;
+                --text-muted: #666;
+                --bg: #111;
+                --accent: #6db3f2;
+                --border: #333;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header { margin-bottom: 2.5rem; }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .back-link:hover { color: var(--accent); }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .editions {
+            list-style: none;
+        }
+
+        .edition {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edition:last-child {
+            border-bottom: none;
+        }
+
+        .edition-link {
+            font-weight: 500;
+        }
+
+        .edition-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/pulse/" class="back-link">← Latest Edition</a>
+        <h1>Pulse</h1>
+        <p class="subtitle">Ethan's daily briefing, curated by Jane</p>
+    </header>
+
+    <main>
+        <h2 class="section-title">All Editions</h2>
+        <ul class="editions">
+            <li class="edition">
+                <a href="/pulse/2026-03-16.html" class="edition-link">Monday, March 16, 2026</a>
+                <span class="edition-date">Mar 16</span>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <a href="/">← Home</a>
+    </footer>
+</body>
+</html>
