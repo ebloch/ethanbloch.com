@@ -7,7 +7,6 @@
     <meta name="author" content="Ethan Bloch">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Ethan Bloch">
     <meta property="og:title" content="Pulse — Monday, March 16, 2026">
@@ -16,7 +15,6 @@
     <meta property="og:locale" content="en_US">
     <meta property="article:published_time" content="2026-03-16T07:00:00-07:00">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@ethanbloch">
     <meta name="twitter:title" content="Pulse — Monday, March 16, 2026">
@@ -61,7 +59,6 @@
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* Masthead */
         .masthead {
             text-align: center;
             padding-bottom: 2rem;
@@ -91,7 +88,6 @@
             font-style: italic;
         }
 
-        /* Sections */
         .section-title {
             font-size: 0.75rem;
             font-weight: 600;
@@ -107,7 +103,6 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Headlines */
         .headline-story {
             margin-bottom: 2rem;
         }
@@ -123,14 +118,6 @@
             margin-bottom: 0.6rem;
         }
 
-        .headline-story h3 a {
-            color: var(--text);
-        }
-
-        .headline-story h3 a:hover {
-            color: var(--accent);
-        }
-
         .headline-story p {
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
@@ -138,10 +125,16 @@
 
         .headline-story .source {
             font-size: 0.8rem;
+        }
+
+        .headline-story .source a {
             color: var(--text-muted);
         }
 
-        /* Quick Hits */
+        .headline-story .source a:hover {
+            color: var(--accent);
+        }
+
         .quick-hits ul {
             list-style: none;
         }
@@ -155,16 +148,18 @@
             border-bottom: none;
         }
 
-        .quick-hits li a {
-            font-weight: 500;
-        }
-
         .quick-hits .source {
             font-size: 0.85rem;
+        }
+
+        .quick-hits .source a {
             color: var(--text-muted);
         }
 
-        /* Footer */
+        .quick-hits .source a:hover {
+            color: var(--accent);
+        }
+
         footer {
             margin-top: 3rem;
             padding-top: 1.5rem;
@@ -204,40 +199,40 @@
             <article class="headline-story">
                 <h3>Claude Gets 1M Context at Standard Pricing</h3>
                 <p>Anthropic's Claude Opus 4.6 and Sonnet 4.6 now include the full 1M context window with no price multiplier. This is a big deal for document-heavy workflows — you can now fit a year of financial transactions, tax docs, and research into a single prompt without paying extra.</p>
-                <div class="source">TLDR AI</div>
+                <div class="source"><a href="https://claude.com/blog/1m-context-ga">TLDR AI</a></div>
             </article>
 
             <article class="headline-story">
                 <h3>AWS and Visa Building Infrastructure for AI Agents to Make Payments</h3>
                 <p>AWS is creating network-agnostic payment workflows with Visa so AI agents can execute transactions autonomously. The infrastructure lets developers build shopping agents that operate securely across existing payment rails. This is the plumbing for autonomous financial management — the same patterns could power investment rebalancing and bill pay agents.</p>
-                <div class="source">TLDR Fintech</div>
+                <div class="source"><a href="https://www.paymentsdive.com/news/aws-leaps-into-agentic-payments/814169/">TLDR Fintech</a></div>
             </article>
 
             <article class="headline-story">
-                <h3>a16z: The Real AI Opportunity Is Making SAP Usable</h3>
+                <h3>The Real AI Opportunity Is Making SAP Usable</h3>
                 <p>Enterprise AI's biggest impact won't be shiny new products — it'll be wrapping legacy systems like SAP, Salesforce, and ServiceNow with interfaces that don't require a PhD. Key stat: upgrading from SAP ECC to S4HANA costs $700M, takes 3 years, and requires 50 consultants. AI can shortcut all of that with "computer-use" agents that navigate the 30-40% of workflows without APIs.</p>
-                <div class="source">a16z</div>
+                <div class="source"><a href="https://www.a16z.news/p/why-the-world-still-runs-on-sap">a16z</a></div>
             </article>
         </section>
 
         <section class="quick-hits">
             <h2 class="section-title">Quick Hits</h2>
             <ul>
-                <li><a href="https://www.theinformation.com/">Musk's $109B OpenAI lawsuit gets cold reception</a> — Judge called the damages estimate "pulled out of air" and suggested Musk was responsible for "2%" of OpenAI's success. Trial set for April 27. <span class="source">(The Information)</span></li>
+                <li><strong>Musk's $109B OpenAI lawsuit gets cold reception</strong> — Judge called the damages estimate "pulled out of air" and suggested Musk was responsible for "2%" of OpenAI's success. Trial set for April 27. <span class="source"><a href="https://www.theinformation.com/articles/ai-agenda-what-openai-could-owe-elon-musk-an-xai-hiring-spree">The Information</a></span></li>
                 
-                <li><a href="https://robinhood.com/">Robinhood pivoting to family finance super app</a> — Adding joint accounts, family oversight features. Trying to be the household's financial hub, not just the kids' stock trading app. <span class="source">(TLDR Fintech)</span></li>
+                <li><strong>Robinhood pivoting to family finance super app</strong> — Adding joint accounts, family oversight features. Trying to be the household's financial hub, not just the kids' stock trading app. <span class="source"><a href="https://links.tldrnewsletter.com/G7FggG">TLDR Fintech</a></span></li>
                 
-                <li><a href="https://perplexity.ai/">Perplexity launched an AI investing dashboard</a> — Connects to brokerages for portfolio analysis. They're quietly building a finance vertical. <span class="source">(TLDR Fintech)</span></li>
+                <li><strong>Perplexity launched an AI investing dashboard</strong> — Connects to brokerages via Plaid for portfolio analysis using FactSet, S&P Global, and SEC filings. They're quietly building a finance vertical. <span class="source"><a href="https://threadreaderapp.com/thread/2032403765307867575.html">TLDR Fintech</a></span></li>
                 
-                <li><a href="https://ramp.com/">Ramp acquired Billhop, expanding to Europe</a> — Corporate card company making its international move. <span class="source">(TLDR Fintech)</span></li>
+                <li><strong>Ramp acquired Billhop, expanding to Europe</strong> — Opening offices in London and Stockholm, launching UK/EU corporate cards this summer. <span class="source"><a href="https://ramp.com/blog/ramp-is-launching-in-europe">TLDR Fintech</a></span></li>
                 
-                <li><a href="https://x.ai/">xAI on a hiring spree</a> — Lost 2 co-founders, now recruiting aggressively from Cursor and Thinking Machines Lab. Musk admits they're "behind on coding." <span class="source">(The Information)</span></li>
+                <li><strong>xAI on a hiring spree</strong> — Lost 2 co-founders, now recruiting from Cursor and Thinking Machines Lab. Musk admits they're "behind on coding" and says xAI "was not built right first time around." <span class="source"><a href="https://www.theinformation.com/articles/ai-agenda-what-openai-could-owe-elon-musk-an-xai-hiring-spree">The Information</a></span></li>
                 
-                <li><a href="https://karpathy.ai/jobs/">Karpathy's AI Jobs Exposure Visualizer</a> — 342 occupations mapped by AI displacement risk. Worth bookmarking. <span class="source">(TLDR AI)</span></li>
+                <li><strong>Karpathy's AI Jobs Exposure Visualizer</strong> — 342 occupations mapped by AI displacement risk. Worth bookmarking. <span class="source"><a href="https://karpathy.ai/jobs/">TLDR AI</a></span></li>
                 
-                <li><strong>Robot Money thesis emerging</strong> — If AI agents can generate revenue and hold wallets, they need their own financial system. Paperclip and Moltcorp building "treasury protocols" for agent-owned capital. <span class="source">(TLDR Fintech)</span></li>
+                <li><strong>Robot Money thesis emerging</strong> — If AI agents can generate revenue and hold wallets, they need their own financial system. New "treasury protocol" proposals for agent-owned capital. <span class="source"><a href="https://lex.substack.com/p/analysis-robot-money-and-the-economic">TLDR Fintech</a></span></li>
                 
-                <li><a href="https://cerebras.ai/">Cerebras coming to AWS Bedrock</a> — Disaggregated architecture: Trainium for prefill, Cerebras for decode. Claims 5x throughput. <span class="source">(TLDR AI)</span></li>
+                <li><strong>Cerebras coming to AWS Bedrock</strong> — Disaggregated architecture: Trainium for prefill, Cerebras for decode. Claims 5x throughput. <span class="source"><a href="https://www.cerebras.ai/blog/cerebras-is-coming-to-aws">TLDR AI</a></span></li>
             </ul>
         </section>
     </main>
