@@ -122,8 +122,8 @@ function generatePostHTML(post) {
             padding: 3rem 1.5rem;
         }
 
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: var(--text); text-decoration: none; }
+        a:hover { color: var(--accent); }
 
         .back-link {
             display: inline-block;
@@ -383,8 +383,8 @@ function generateIndexHTML(posts) {
             padding: 4rem 1.5rem;
         }
 
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: var(--text); text-decoration: none; }
+        a:hover { color: var(--accent); }
 
         header { margin-bottom: 3rem; }
 
