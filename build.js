@@ -164,6 +164,9 @@ function generatePostHTML(post) {
         }
         .post-content li { margin-bottom: 0.5rem; }
 
+        .post-content a { color: var(--accent); }
+        .post-content a:hover { text-decoration: underline; }
+
         .post-content blockquote {
             border-left: 3px solid var(--accent);
             padding-left: 1.25rem;
