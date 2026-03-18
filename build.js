@@ -413,7 +413,7 @@ function generateIndexHTML(posts) {
             gap: 1.25rem;
             font-size: 0.9rem;
         }
-        .links a { color: var(--text-muted); }
+        .links a { color: var(--text); }
         .links a:hover { color: var(--accent); }
 
         .section-title {
