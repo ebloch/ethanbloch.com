@@ -13,8 +13,7 @@ async function fetchRSS() {
     }
   });
   if (!response.ok) {
-    console.log(`RSS fetch returned ${response.status} - skipping build (this is normal if Cloudflare is blocking)`);
-    process.exit(0);
+    throw new Error(`RSS fetch returned ${response.status}`);
   }
   return response.text();
 }
