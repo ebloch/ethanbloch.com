@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 const RSS_URL = 'https://ethanbloch.substack.com/feed';
+const SUBSCRIBE_URL = 'https://ethanbloch.substack.com/subscribe';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/ebloch';
 const POSTS_DIR = './posts';
 
 async function fetchRSS() {
@@ -254,44 +256,23 @@ function generatePostHTML(post) {
             font-size: 0.95rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 200px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -307,7 +288,8 @@ function generatePostHTML(post) {
             ${post.content}
         </div>
         <div class="subscribe-cta">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="${SUBSCRIBE_URL}">Subscribe on Substack</a>
         </div>
     </article>
 
@@ -470,39 +452,19 @@ function generateIndexHTML(posts) {
             font-size: 0.9rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.5rem 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 180px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.5rem 1rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; }
@@ -511,7 +473,6 @@ function generateIndexHTML(posts) {
                 gap: 0.25rem;
             }
             .post-date { font-size: 0.8rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -525,7 +486,7 @@ function generateIndexHTML(posts) {
         </p>
         <div class="links">
             <a href="https://x.com/ebloch">X</a>
-            <a href="https://linkedin.com/in/ethanbloch">LinkedIn</a>
+            <a href="${LINKEDIN_URL}">LinkedIn</a>
             <a href="https://github.com/ebloch">GitHub</a>
         </div>
     </header>
@@ -536,7 +497,8 @@ function generateIndexHTML(posts) {
         </ul>
 
         <div class="subscribe-box">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="${SUBSCRIBE_URL}">Subscribe on Substack</a>
         </div>
     </main>
 

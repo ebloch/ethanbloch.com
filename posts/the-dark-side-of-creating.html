@@ -192,44 +192,23 @@
             font-size: 0.95rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 200px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -245,7 +224,8 @@
             <p>That feeling when self doubt starts to kick in and you ask yourself if you&#8217;re crazy.</p><p>"Am I crazy?"</p><p>Anyone who&#8217;s ever created must have come here at least once. If not hundreds of times.</p><p>The struggle with the thing you&#8217;re trying to solve, create, express wraps you in a thin film that dulls the world around you.</p><p>It affects your ability to enjoy, to fully take in your present experience. It&#8217;s not just active while working. It seems to find a way to wrap you even while taking breaks.</p><p>"Am I lost. How lost am I?"</p><p>Lean into it. Breath into it.</p><p>It&#8217;s an almost inexplicable feeling that in a way nods to your current state of consciousness. Being alive. You can only be here if you are alive.</p><p>"Is it really this hard or is there something wrong with me?"</p><p>I&#8217;m here right now so I thought I&#8217;d try and capture it.</p>
         </div>
         <div class="subscribe-cta">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="https://ethanbloch.substack.com/subscribe">Subscribe on Substack</a>
         </div>
     </article>
 

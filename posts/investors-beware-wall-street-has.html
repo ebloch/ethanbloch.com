@@ -192,44 +192,23 @@
             font-size: 0.95rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 200px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -245,7 +224,8 @@
             <p>They&#8217;ll say it&#8217;s portfolio diversification. They&#8217;ll say it&#8217;s a smart alternative to indexing.</p><p>But what they won&#8217;t say? They have no one left to sell this stuff to.</p><p>Institutional appetite for private equity is saturated. Private equity firms are sitting on deals underwritten at bloated multiples that will <em>never</em> deliver the returns they modeled. They&#8217;re stuck. And now they&#8217;re coming for you&#8212;the retail investor.</p><p>Just listen to <a href="https://www.youtube.com/watch?v=Laub-B0C9tk">Mark Rowan of Apollo</a> making the rounds, telling retail investors to load up on private equity in their 401(k)s, IRAs, and brokerage accounts.</p><p>Contrast that with the warning, 1 week earlier, by H.E. Sheikh Saoud Salem Abdulaziz Al-Sabah, the head of <a href="https://en.wikipedia.org/wiki/Kuwait_Investment_Authority">Kuwait&#8217;s $1 trillion sovereign wealth fund</a>:</p><blockquote><p>I believe Private Equity is <strong>very troubled</strong> (17:30)</p></blockquote><div id="youtube2-GHu4p0-WnT8" class="youtube-wrap" data-attrs="{&quot;videoId&quot;:&quot;GHu4p0-WnT8&quot;,&quot;startTime&quot;:null,&quot;endTime&quot;:null}" data-component-name="Youtube2ToDOM"><div class="youtube-inner"><iframe src="https://www.youtube-nocookie.com/embed/GHu4p0-WnT8?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe></div></div><p>Al-Sabah expects &#8220;steep&#8221; discounts compared to current prices (21:30). Yet retail investors aren&#8217;t getting access to steep discounts, they&#8217;re getting deals at prices no one else wants.</p><p>The truth?</p><p>Yes&#8212;there are good private investments. </p><p>But <strong>you won&#8217;t get access to them</strong>. </p><p>Brokers and even fiduciaries will tell you Private Equity will add diversification to your portfolio. They may even tell you you&#8217;re getting privileged access and show you returns from the golden years of private equity.</p><p>But don&#8217;t buy it. Those years are behind us. And it&#8217;s unlikely illiquid private leveraged US assets add any kind of diversification to your portfolio.</p><p>If you want more diversification take a look at your exposure to international equities both developed and emerging markets. Take a look at domestic and international fixed income. Take a look at adding a splash of gold or commodities. </p><p><strong>Bottom line: Wall Street needs to offload private equity that institutions no longer want. And retail investors are the new liquidity strategy. Buyer beware.</strong></p><p></p><p></p><p></p><div class="subscription-widget-wrap-editor" data-attrs="{&quot;url&quot;:&quot;https://ethanbloch.substack.com/subscribe?&quot;,&quot;text&quot;:&quot;Subscribe&quot;,&quot;language&quot;:&quot;en&quot;}" data-component-name="SubscribeWidgetToDOM"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">Thanks for reading! Subscribe for free to receive new posts and support my work.</p></div><form class="subscription-widget-subscribe"><input type="email" class="email-input" name="email" placeholder="Type your email&#8230;" tabindex="-1"><input type="submit" class="button primary" value="Subscribe"><div class="fake-input-wrapper"><div class="fake-input"></div><div class="fake-button"></div></div></form></div></div>
         </div>
         <div class="subscribe-cta">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="https://ethanbloch.substack.com/subscribe">Subscribe on Substack</a>
         </div>
     </article>
 

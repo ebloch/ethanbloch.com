@@ -192,44 +192,23 @@
             font-size: 0.95rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 200px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -245,7 +224,8 @@
             <div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!ifet!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!ifet!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 424w, https://substackcdn.com/image/fetch/$s_!ifet!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 848w, https://substackcdn.com/image/fetch/$s_!ifet!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 1272w, https://substackcdn.com/image/fetch/$s_!ifet!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!ifet!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png" width="1456" height="576" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:576,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:80122,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://ethanbloch.substack.com/i/194150845?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!ifet!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 424w, https://substackcdn.com/image/fetch/$s_!ifet!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 848w, https://substackcdn.com/image/fetch/$s_!ifet!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 1272w, https://substackcdn.com/image/fetch/$s_!ifet!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3415524d-0ce6-49fe-bd54-3f39dedc47d0_1486x588.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container restack-image"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><g><path d="M2.53001 7.81595C3.49179 4.73911 6.43281 2.5 9.91173 2.5C13.1684 2.5 15.9537 4.46214 17.0852 7.23684L17.6179 8.67647M17.6179 8.67647L18.5002 4.26471M17.6179 8.67647L13.6473 6.91176M17.4995 12.1841C16.5378 15.2609 13.5967 17.5 10.1178 17.5C6.86118 17.5 4.07589 15.5379 2.94432 12.7632L2.41165 11.3235M2.41165 11.3235L1.5293 15.7353M2.41165 11.3235L6.38224 13.0882"></path></g></svg></button><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container view-image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2 lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg></button></div></div></div></a></figure></div><p>We started Hiro with the vision of building an AI personal CFO, and we worked relentlessly to make it real. Since then, we&#8217;ve helped clients plan for and manage more than $1 billion in assets, and we&#8217;re incredibly proud of what we&#8217;ve built and learned along the way.</p><p>As <a href="https://rushabhdoshi.com/">Rushabh</a> and I got to know the team at OpenAI, it became clear that joining forces would give us the opportunity to pursue that vision at a much larger scale.</p><p>For decades, personalized financial guidance has been too expensive, too generic, or too hard to access. ChatGPT is finally changing that.</p><p>The mission that brought us to Hiro, and to Digit before that, has not changed: improving people&#8217;s financial well-being. If anything, it feels even more important now.</p><p>Starting today, Hiro is no longer accepting new signups. The Hiro product will stop functioning on April 20, 2026 and all data will be deleted from our servers on May 13, 2026. Existing users can export all of their data from <a href="https://app.hirofinance.com/settings/export/data">settings</a> until May 13, 2026.</p><p>To everyone who used Hiro: thank you. Thank you for believing in us early. Thank you for trusting us with your time, your feedback, and your finances. Building for you was a privilege. I&#8217;m sorry that the Hiro journey ends here, but I hope we earn the chance to serve you again through what we build next at OpenAI.</p><p>To our team: I&#8217;m incredibly grateful for this team. You pursued our mission with passion and urgency and just kept shipping, learning, shipping. You built things I&#8217;ll always be proud of. I&#8217;m excited to continue our mission together at an even greater scale at OpenAI.</p><p>To our investors: Ribbit, General Catalyst, Restive and many friends, you are the best partners a founder could ask for. I know the Hiro journey is ending sooner than any of us expected and I&#8217;m grateful for your unwavering support. Thank you.</p><p>And to everyone else who supported Hiro along the way: thank you.</p>
         </div>
         <div class="subscribe-cta">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="https://ethanbloch.substack.com/subscribe">Subscribe on Substack</a>
         </div>
     </article>
 

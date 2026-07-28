@@ -192,44 +192,23 @@
             font-size: 0.95rem;
         }
 
-        .subscribe-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .subscribe-form input[type="email"] {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            background: var(--bg);
-            color: var(--text);
-            min-width: 200px;
-        }
-        .subscribe-form button {
+        .subscribe-link {
+            display: inline-block;
             padding: 0.6rem 1.25rem;
             background: var(--text);
             color: var(--bg);
-            border: none;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            cursor: pointer;
         }
-        .subscribe-form button:hover { opacity: 0.85; }
-        .subscribe-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-status {
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+        .subscribe-link:hover {
+            color: var(--bg);
+            opacity: 0.85;
         }
-        .subscribe-status.success { color: #22c55e; }
-        .subscribe-status.error { color: #ef4444; }
 
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; font-size: 17px; }
             h1 { font-size: 1.6rem; }
-            .subscribe-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -245,7 +224,8 @@
             <p>Hard conversations are the stuff that growth is made of. Ignore them at your peril.</p><p>Whether with your spouse, partner, co-founder, team member, family member, friend or employee. It is through hard conversations that you enable one another to grow.</p><p>What exactly are hard conversations made of? Typically how something made you feel or something you've observed about someone (something). In short, they are about a truth. And usually the truth hurts. Yet sharing and discussing truth is liberating. So you need to make sure you don't enslave it.&nbsp;</p><p>Don't short change the people in your life because you are scared of these hard conversations. Don't give yourself an out. Through the pain that is having conversations a magic is unearthed.</p><p>Think of it as a tilling of the relationship soil that allows new crops to grow.</p><p>I've come to discover that one of the most satisfying feelings for me in life is the feeling I get towards the end of one of these conversations. And I encourage you to chase this high.</p><p>I'm not world class at having hard conversations yet. But it's something I'm committed to and work on every day.</p><p>Hard conversations are called hard conversations for a reason they're freaking hard. But I promise you this: hard conversations will lead to stronger and healthier relationships. Who doesn't want that?</p><p>What conversations have you been avoiding?</p><p><strong>Notes</strong></p><p>I can't write this without thanking Dana and Bryan for helping me have more hard conversations.</p>
         </div>
         <div class="subscribe-cta">
-            <iframe src="https://ethanbloch.substack.com/embed" width="100%" height="150" style="border:none; background:transparent;" frameborder="0" scrolling="no"></iframe>
+            <p>Get new posts delivered by email.</p>
+            <a class="subscribe-link" href="https://ethanbloch.substack.com/subscribe">Subscribe on Substack</a>
         </div>
     </article>
 
