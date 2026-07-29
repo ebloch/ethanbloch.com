@@ -520,7 +520,16 @@ function generateIndexHTML(posts) {
 
 async function build() {
   console.log('Fetching RSS feed...');
-  const xml = await fetchRSS();
+  let xml;
+  try {
+    xml = await fetchRSS();
+  } catch (err) {
+    if (fs.existsSync('./index.html')) {
+      console.warn(`RSS fetch failed (${err.message}); keeping checked-in site unchanged.`);
+      return;
+    }
+    throw err;
+  }
   
   console.log('Parsing posts...');
   const posts = parseRSS(xml);
