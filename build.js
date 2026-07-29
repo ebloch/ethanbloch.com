@@ -5,7 +5,8 @@ const path = require('path');
 
 const RSS_URL = 'https://ethanbloch.substack.com/feed';
 const SUBSCRIBE_URL = 'https://ethanbloch.substack.com/subscribe';
-const LINKEDIN_URL = 'https://www.linkedin.com/in/ebloch';
+const SUBSTACK_EMBED_URL = 'https://ethanbloch.substack.com/embed';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/ebloch/';
 const POSTS_DIR = './posts';
 
 async function fetchRSS() {
@@ -447,6 +448,13 @@ function generateIndexHTML(posts) {
             margin-bottom: 3rem;
             text-align: center;
         }
+        .subscribe-embed {
+            width: 100%;
+            height: 150px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            border-radius: 4px;
+        }
         .subscribe-box p {
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
@@ -485,9 +493,9 @@ function generateIndexHTML(posts) {
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
         </p>
         <div class="links">
-            <a href="https://x.com/ebloch">X</a>
-            <a href="${LINKEDIN_URL}">LinkedIn</a>
-            <a href="https://github.com/ebloch">GitHub</a>
+            <a href="https://x.com/ebloch" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/ebloch" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
     </header>
 
@@ -498,7 +506,8 @@ function generateIndexHTML(posts) {
 
         <div class="subscribe-box">
             <p>Get new posts delivered by email.</p>
-            <a class="subscribe-link" href="${SUBSCRIBE_URL}">Subscribe on Substack</a>
+            <iframe class="subscribe-embed" src="${SUBSTACK_EMBED_URL}" title="Subscribe to Ethan Bloch on Substack"></iframe>
+            <a class="subscribe-link" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">Subscribe on Substack</a>
         </div>
     </main>
 
