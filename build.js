@@ -2,9 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execFile } = require('child_process');
-const { promisify } = require('util');
-const execFileAsync = promisify(execFile);
 
 const RSS_URL = 'https://ethanbloch.substack.com/feed';
 const SUBSCRIBE_URL = 'https://ethanbloch.substack.com/subscribe';
@@ -12,9 +9,9 @@ const SUBSTACK_EMBED_URL = 'https://ethanbloch.substack.com/embed';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/ebloch/';
 const POSTS_DIR = './posts';
 
-async function fetchRSS() {
+async function fetchRSS(fetchImpl = fetch) {
   try {
-    const response = await fetch(RSS_URL, {
+    const response = await fetchImpl(RSS_URL, {
       signal: AbortSignal.timeout(30000),
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -25,14 +22,31 @@ async function fetchRSS() {
     }
     return await response.text();
   } catch (err) {
-    // Substack can reject Node's TLS client on hosted runners even with a browser User-Agent.
-    console.warn(`RSS fetch failed (${err.message}); retrying with the browser-compatible client.`);
-    const { stdout } = await execFileAsync('python3', [path.join(__dirname, 'scripts/fetch-rss.py')], {
-      timeout: 100000,
-      maxBuffer: 10 * 1024 * 1024,
+    // Substack blocks requests from GitHub-hosted networks. Fall back to public RSS syndication.
+    console.warn(`RSS fetch failed (${err.message}); retrying through rss2json.`);
+    const response = await fetchImpl(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`, {
+      signal: AbortSignal.timeout(30000),
     });
-    return stdout;
+    if (!response.ok) throw new Error(`RSS fallback returned ${response.status}`);
+    return await response.json();
   }
+}
+
+function parseSyndicatedFeed(feed) {
+  if (feed.status !== 'ok' || feed.feed?.url !== RSS_URL || !Array.isArray(feed.items)) {
+    throw new Error('RSS fallback returned an invalid feed.');
+  }
+  return feed.items.map(item => {
+    const link = new URL(item.link);
+    if (link.origin !== 'https://ethanbloch.substack.com' || !link.pathname.startsWith('/p/')) {
+      throw new Error('RSS fallback returned a post from an unexpected source.');
+    }
+    // rss2json emits UTC timestamps without a timezone suffix.
+    const pubDate = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(item.pubDate)
+      ? item.pubDate.replace(' ', 'T') + 'Z' : item.pubDate;
+    return { title: item.title, slug: link.pathname.slice(3), link: item.link,
+      pubDate, description: item.description || '', content: item.content || item.description || '' };
+  });
 }
 
 function parseRSS(xml) {
@@ -503,8 +517,8 @@ function generateIndexHTML(posts) {
         <h1>Ethan Bloch</h1>
         <p class="tagline">Notes on money, technology and life.</p>
         <p class="bio">
-            Fintech pioneer. Built <a href="/posts/digit.html">Digit</a> — helped millions save over $9B. 
-            Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
+            Leading personal finance at OpenAI following its acquisition of <a href="/posts/hiro-is-joining-openai.html">Hiro</a>.
+            Previously built <a href="/posts/digit.html">Digit</a>, helping millions save over $9B.
         </p>
         <div class="links">
             <a href="https://x.com/ebloch" target="_blank" rel="noopener noreferrer">X</a>
@@ -534,16 +548,16 @@ function generateIndexHTML(posts) {
 
 async function build(fetchFeed = fetchRSS) {
   console.log('Fetching RSS feed...');
-  const xml = await fetchFeed();
+  const feed = await fetchFeed();
   
   console.log('Parsing posts...');
-  const posts = parseRSS(xml);
+  const posts = typeof feed === 'string' ? parseRSS(feed) : parseSyndicatedFeed(feed);
   console.log(`Found ${posts.length} posts`);
-  if (!/<rss[\s>]/i.test(xml) || posts.length === 0) {
+  if ((typeof feed === 'string' && !/<rss[\s>]/i.test(feed)) || posts.length === 0) {
     throw new Error('RSS feed contains no usable posts; keeping existing site unchanged.');
   }
   for (const post of posts) {
-    if (!/^[a-zA-Z0-9_-]+$/.test(post.slug) || !Number.isFinite(Date.parse(post.pubDate))) {
+    if (!/^[a-zA-Z0-9_-]+$/.test(post.slug) || !Number.isFinite(Date.parse(post.pubDate)) || !post.title || !post.content) {
       throw new Error(`Invalid RSS post: ${post.slug}; keeping existing site unchanged.`);
     }
   }
@@ -590,4 +604,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { build, parseRSS };
+module.exports = { build, fetchRSS, parseRSS, parseSyndicatedFeed };

@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { build } = require('../build');
+const { build, fetchRSS, parseSyndicatedFeed } = require('../build');
 
 const feed = `<rss><channel><item>
 <title><![CDATA[Latest article]]></title>
@@ -12,6 +12,27 @@ const feed = `<rss><channel><item>
 <description><![CDATA[An article summary.]]></description>
 <content:encoded><![CDATA[<p>The complete article.</p>]]></content:encoded>
 </item></channel></rss>`;
+
+test('a blocked direct request falls back to the same public feed with UTC dates', async () => {
+  const syndicated = { status: 'ok', feed: { url: 'https://ethanbloch.substack.com/feed' }, items: [{
+    title: 'Latest article', link: 'https://ethanbloch.substack.com/p/latest-article',
+    pubDate: '2026-09-04 18:21:30', content: '<p>The complete article.</p>',
+  }] };
+  const calls = [];
+  const result = await fetchRSS(async url => {
+    calls.push(url);
+    return calls.length === 1 ? { ok: false, status: 403 } : { ok: true, json: async () => syndicated };
+  });
+  assert.equal(calls.length, 2);
+  assert.equal(new URL(calls[1]).searchParams.get('rss_url'), syndicated.feed.url);
+  const [post] = parseSyndicatedFeed(result);
+  assert.equal(post.pubDate, '2026-09-04T18:21:30Z');
+  assert.equal(post.content, '<p>The complete article.</p>');
+  assert.throws(() => parseSyndicatedFeed({ ...syndicated, status: 'error' }));
+  assert.throws(() => parseSyndicatedFeed({ ...syndicated, feed: { url: 'https://example.com/feed' } }));
+  assert.throws(() => parseSyndicatedFeed({ ...syndicated, items: [{ ...syndicated.items[0], link: 'https://example.com/p/other' }] }));
+  await assert.rejects(fetchRSS(async () => ({ ok: false, status: 403 })), /RSS fallback returned 403/);
+});
 
 test('feed errors preserve the last good site and fail the build', async () => {
   const originalDir = process.cwd();

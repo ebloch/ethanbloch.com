@@ -18,7 +18,9 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,19 +30,22 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install feed client
-        run: python3 -m pip install -r scripts/requirements.txt
-
       - name: Test build failure handling
         run: node --test
 
       - name: Build site
         run: node build.js
+
+      - name: Save imported articles
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add index.html posts/
+          if ! git diff --staged --quiet; then
+            git commit -m "Update posts from RSS"
+            git push
+          fi
 
       - name: Prepare public files
         run: |
