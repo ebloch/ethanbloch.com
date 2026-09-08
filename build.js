@@ -2,6 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFile } = require('child_process');
+const { promisify } = require('util');
+const execFileAsync = promisify(execFile);
 
 const RSS_URL = 'https://ethanbloch.substack.com/feed';
 const SUBSCRIBE_URL = 'https://ethanbloch.substack.com/subscribe';
@@ -10,15 +13,26 @@ const LINKEDIN_URL = 'https://www.linkedin.com/in/ebloch/';
 const POSTS_DIR = './posts';
 
 async function fetchRSS() {
-  const response = await fetch(RSS_URL, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+  try {
+    const response = await fetch(RSS_URL, {
+      signal: AbortSignal.timeout(30000),
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`RSS fetch returned ${response.status}`);
     }
-  });
-  if (!response.ok) {
-    throw new Error(`RSS fetch returned ${response.status}`);
+    return await response.text();
+  } catch (err) {
+    // Substack can reject Node's TLS client on hosted runners even with a browser User-Agent.
+    console.warn(`RSS fetch failed (${err.message}); retrying with the browser-compatible client.`);
+    const { stdout } = await execFileAsync('python3', [path.join(__dirname, 'scripts/fetch-rss.py')], {
+      timeout: 100000,
+      maxBuffer: 10 * 1024 * 1024,
+    });
+    return stdout;
   }
-  return response.text();
 }
 
 function parseRSS(xml) {
@@ -313,7 +327,7 @@ function generateIndexHTML(posts) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Notes on money, technology, and building a meaningful life.">
+    <meta name="description" content="Notes on money, technology and life.">
     <meta name="author" content="Ethan Bloch">
     <meta name="robots" content="index, follow">
 
@@ -321,7 +335,7 @@ function generateIndexHTML(posts) {
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ethan Bloch">
     <meta property="og:title" content="Ethan Bloch">
-    <meta property="og:description" content="Notes on money, technology, and building a meaningful life.">
+    <meta property="og:description" content="Notes on money, technology and life.">
     <meta property="og:url" content="https://ethanbloch.com">
     <meta property="og:locale" content="en_US">
 
@@ -329,7 +343,7 @@ function generateIndexHTML(posts) {
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@ethanbloch">
     <meta name="twitter:title" content="Ethan Bloch">
-    <meta name="twitter:description" content="Notes on money, technology, and building a meaningful life.">
+    <meta name="twitter:description" content="Notes on money, technology and life.">
 
     <title>Ethan Bloch</title>
     <link rel="canonical" href="https://ethanbloch.com">
@@ -487,7 +501,7 @@ function generateIndexHTML(posts) {
 <body>
     <header>
         <h1>Ethan Bloch</h1>
-        <p class="tagline">Notes on money, technology, and building a meaningful life.</p>
+        <p class="tagline">Notes on money, technology and life.</p>
         <p class="bio">
             Fintech pioneer. Built <a href="/posts/digit.html">Digit</a> — helped millions save over $9B. 
             Now building <a href="https://hirofinance.com">Hiro</a>, an AI financial advisor.
@@ -518,22 +532,21 @@ function generateIndexHTML(posts) {
 </html>`;
 }
 
-async function build() {
+async function build(fetchFeed = fetchRSS) {
   console.log('Fetching RSS feed...');
-  let xml;
-  try {
-    xml = await fetchRSS();
-  } catch (err) {
-    if (fs.existsSync('./index.html')) {
-      console.warn(`RSS fetch failed (${err.message}); keeping checked-in site unchanged.`);
-      return;
-    }
-    throw err;
-  }
+  const xml = await fetchFeed();
   
   console.log('Parsing posts...');
   const posts = parseRSS(xml);
   console.log(`Found ${posts.length} posts`);
+  if (!/<rss[\s>]/i.test(xml) || posts.length === 0) {
+    throw new Error('RSS feed contains no usable posts; keeping existing site unchanged.');
+  }
+  for (const post of posts) {
+    if (!/^[a-zA-Z0-9_-]+$/.test(post.slug) || !Number.isFinite(Date.parse(post.pubDate))) {
+      throw new Error(`Invalid RSS post: ${post.slug}; keeping existing site unchanged.`);
+    }
+  }
   
   // Create posts directory
   if (!fs.existsSync(POSTS_DIR)) {
@@ -548,15 +561,33 @@ async function build() {
     console.log(`Generated: ${filepath}`);
   }
   
-  // Generate index page
-  const indexHTML = generateIndexHTML(posts);
+  // Substack limits RSS to 20 items. Keep older, already-imported articles listed.
+  const indexPosts = [...posts];
+  const feedSlugs = new Set(posts.map(post => post.slug));
+  for (const filename of fs.readdirSync(POSTS_DIR)) {
+    if (!filename.endsWith('.html')) continue;
+    const slug = filename.slice(0, -5);
+    if (feedSlugs.has(slug)) continue;
+    const html = fs.readFileSync(path.join(POSTS_DIR, filename), 'utf8');
+    const title = html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1];
+    const pubDate = html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1];
+    if (title && Number.isFinite(Date.parse(pubDate))) {
+      indexPosts.push({ title, slug, pubDate });
+    }
+  }
+  indexPosts.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
+  const indexHTML = generateIndexHTML(indexPosts);
   fs.writeFileSync('./index.html', indexHTML);
   console.log('Generated: index.html');
   
   console.log('Build complete!');
 }
 
-build().catch(err => {
-  console.error('Build failed:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  build().catch(err => {
+    console.error('Build failed:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = { build, parseRSS };

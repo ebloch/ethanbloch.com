@@ -2,37 +2,68 @@ name: Build Site
 
 on:
   schedule:
-    # Run once daily at 6am UTC
-    - cron: '0 6 * * *'
-  workflow_dispatch: # Allow manual trigger
+    # Check for new articles hourly, away from the busy start of the hour.
+    - cron: '17 * * * *'
+  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - 'build.js'
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
+          node-version: '24'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install feed client
+        run: python3 -m pip install -r scripts/requirements.txt
+
+      - name: Test build failure handling
+        run: node --test
+
       - name: Build site
         run: node build.js
-      
-      - name: Commit and push if changed
+
+      - name: Prepare public files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update posts from RSS" && git push)
+          mkdir -p _site
+          cp index.html CNAME substack-custom.css _site/
+          cp -R posts pulse jane _site/
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
